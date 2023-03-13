@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.aopstudy.handler.aop.LoginUser;
+import shop.mtcoding.aopstudy.handler.aop.SessionUser;
 import shop.mtcoding.aopstudy.model.User;
 
 @RestController
@@ -26,13 +28,21 @@ public class UserController {
     }
 
     @GetMapping("/user/1")
-    public String userInfo(){
+    public String userInfo(){ // 인증 필요 없음
         return "user ok";
     }
 
-    @GetMapping("/auto/1")
-    public String authInfo(){
+    @GetMapping("/auth/1")
+    public String authInfo(@LoginUser User principal){ // 인증 필요함 
+        // 이코드가 필요 없어 session.getAttribute("principal") ~~~ ; if ( 머시기 )
+        // 인터셉터에서는 아예 접근 자체를 막아버리고 aop가 로그인창으로 보내버리는구나
+        System.out.println("테스트 로그인한 사용자: " + principal.getUsername());
         return "auth ok";
     }
 
+    @GetMapping("/auth/ss/1")
+    public String authInfoss(@SessionUser User principal){
+        System.out.println("테스트 로그인한 사용자: " + principal.getUsername());
+        return "auth ok";
+    }
 }
