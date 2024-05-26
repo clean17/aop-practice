@@ -1,13 +1,11 @@
-package shop.mtcoding.aopstudy.handler.interceptor;
+package shop.mtcoding.aopstudy.handler;
 
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.MethodParameter;
-import org.springframework.lang.Nullable;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -16,8 +14,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import lombok.RequiredArgsConstructor;
-import shop.mtcoding.aopstudy.handler.LoginInterceptor;
 import shop.mtcoding.aopstudy.handler.aop.SessionUser;
+import shop.mtcoding.aopstudy.handler.interceptor.LoginInterceptor;
 import shop.mtcoding.aopstudy.model.User;
 
 @RequiredArgsConstructor

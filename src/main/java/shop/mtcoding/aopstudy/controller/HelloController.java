@@ -8,23 +8,16 @@ import shop.mtcoding.aopstudy.handler.aop.Hello;
 @RestController
 public class HelloController {
    
-    @GetMapping("/v1")
+    @GetMapping("/hello1")
     public String v1(){
-        System.out.println("테스트 : 순서");
-        return "v1";
+        System.out.println("컨트롤러");
+        return "hello1";
     }
 
     @Hello
-    @GetMapping("/v2")
+    @GetMapping("/hello2")
     public String v2(String username){
-        System.out.println("테스트 : 순서");
-        return "v2";
-    }
-
-    @Hello
-    @GetMapping("/v3")
-    public String v3(String username){
-        // System.out.println("테스트 : 순서");
-        return "v3";
+        System.out.println("컨트롤러");
+        return "hello2";
     }
 }
